@@ -1,4 +1,4 @@
-## Tech Test
+## Requirements
 Please complete the following steps:
 1. Create a hosted git repository account of your choice (if you do not already possess one) e.g. github, gitlab, bitbucket, etc.
 2. Provide us with the account name
