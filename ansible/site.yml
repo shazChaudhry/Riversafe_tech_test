@@ -1,0 +1,16 @@
+---
+- hosts: local
+  become: yes
+  roles:
+    - role: install-docker
+      tags: ['docker']
+
+  # tasks:
+  # - name: Set system path
+  #   lineinfile:
+  #     path: /etc/profile
+  #     state: present
+  #     regexp: '^PATH'
+  #     line: 'PATH=/opt/terraform-{{ terraform_version }}:/opt/apache-maven-3.6.0/bin:$PATH'
+  #   tags:
+  #     - always

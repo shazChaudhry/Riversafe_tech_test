@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 	config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 	# Please check the release blog for a full list of known limitations
 
-	# The Vagrant Docker provisioner can automatically install Docker. However, the ask is to install it via Ansible
+	# The Vagrant Docker provisioner can automatically install Docker. However, the ask here is to install it via Ansible
 	# config.vm.provision "docker"
 	config.vm.define "techtest", primary: true do |techtest|
 		techtest.vm.hostname = 'techtest'
@@ -23,9 +23,11 @@ Vagrant.configure("2") do |config|
 			v.customize ["modifyvm", :id, "--memory", 3000]
 			v.customize ["modifyvm", :id, "--name", "techtest"]
 		end
-		# techtest.vm.provision "shell", inline: "yum install -y epel-release && yum install -y git jq wget"
+		# techtest.vm.provision "shell", inline: "yum update -y && yum install -y epel-release"
+		# https://www.vagrantup.com/docs/provisioning/ansible_local.html
 		techtest.vm.provision "ansible_local" do |ansible|
-			ansible.playbook = "ansible/site.yml"
+			ansible.playbook 				= "ansible/site.yml"
+			ansible.inventory_path 	= "ansible/hosts"
 		end
 	end
 end

@@ -1,0 +1,8 @@
+---
+# handlers file for docker-ce-ansible-role
+
+- name: Enable Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes

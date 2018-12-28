@@ -1,0 +1,6 @@
+---
+# vars file for ansible/install-additional-tools
+packages:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
