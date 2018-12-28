@@ -32,7 +32,7 @@ The assumption is that this solution is being re-created on a Windows 10 pro mac
 - Latest version of [Git Bash](https://git-scm.com/downloads)
 - Latest version of [Vagrant](https://www.vagrantup.com/intro/getting-started/install.html)
   - Install Vagrant Host Manager plugin by running `vagrant plugin install vagrant-hostmanager` in Git Bash terminal. This will update host files on both guest and host machines
-  - Install vagrant-vbguest plugin: `vagrant plugin install vagrant-vbguest`. See the comments in [Vagrantfile](Vagrantfile) regarding shared folders.
+  - Install vagrant-vbguest plugin: `vagrant plugin install vagrant-vbguest`. See the comments in [Vagrantfile](./Vagrantfile) regarding shared folders.
 
 ### Instructions
 1. Clone this repo and change the directory: `git clone https://github.com/shazChaudhry/tech_test.git && cd tech_test`
