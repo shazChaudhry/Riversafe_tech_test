@@ -22,7 +22,7 @@ Please complete the following steps:
 6. **For  extra points write some tests using the test framework of choice (serverspec, testinfra, etc) or even simple bash/python scripts to run tests of your choice to confirm/deny that the deployment has worked**
 
 ## The solution
-The assumption is that this solution is being re-created on a Windows 10 pro machine as only Windows was available for testing. The test machine had 12GB RAM available.
+The assumption is that this solution is being re-created on a Windows 10 pro machine. At the time of writing this only a Windows machine was available for the dev work. The dev machine had 12GB RAM available.
 
 ### Prerequisites
 - The user has admin privileges on the machine
@@ -36,7 +36,7 @@ The assumption is that this solution is being re-created on a Windows 10 pro mac
 
 ### Instructions
 1. Clone this repo and change the directory: `git clone https://github.com/shazChaudhry/tech_test.git && cd tech_test`
-1. `clear && vagrant up`. This command updates the box for the current Vagrant environment if there are updates available and then creates and configures the guest machine according to the Vagrantfile
+1. Launch the guest machine: `clear && vagrant up --color`
 2. Should you have a need to SSH to the box _(e.g. troubleshooting)_, then run `vagrant ssh` command
 
 ### Testing
@@ -44,5 +44,3 @@ The web URL serving out the “Hello World” should be accessible at [http://te
 
 ### Clean up
 Once finished, change to the directory in GitBash terminal to where this repo was cloned and run `vagrant destroy --force`
-
-### troubleshooting

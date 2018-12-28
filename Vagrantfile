@@ -26,8 +26,11 @@ Vagrant.configure("2") do |config|
 		# techtest.vm.provision "shell", inline: "yum update -y && yum install -y epel-release"
 		# https://www.vagrantup.com/docs/provisioning/ansible_local.html
 		techtest.vm.provision "ansible_local" do |ansible|
-			ansible.playbook 				= "ansible/site.yml"
-			ansible.inventory_path 	= "ansible/hosts"
+			ansible.provisioning_path		=	"/vagrant/ansible/"
+			ansible.playbook 						= "site.yml"
+			ansible.inventory_path 			= "hosts"
+			ansible.config_file					= "ansible.cfg"
+			# ansible.verbose        			= true
 		end
 	end
 end
