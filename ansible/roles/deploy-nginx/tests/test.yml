@@ -2,7 +2,5 @@
 - hosts: local
   become: yes
   roles:
-    - role: install-docker
-      tags: ['docker']
     - role: deploy-nginx
       tags: ['nginx']

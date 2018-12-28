@@ -19,7 +19,7 @@ Please complete the following steps:
     5. At the end of the provisioning the URL to the web page should be available from the hosting OS
     6. Write appropriate documentation in the repository to explain how someone cloning it should provision the Vagrant VM and access the web URL serving out the “Hello World”
 5. Commit as little or as often as you like
-6. **For  extra points write some tests using the test framework of choice (serverspec, testinfra, etc) or even simple bash/python scripts to run tests of your choice to confirm/deny that the deployment has worked**
+6. **For extra points write some tests using the test framework of choice (serverspec, testinfra, etc) or even simple bash/python scripts to run tests of your choice to confirm/deny that the deployment has worked**
 
 ## The solution
 The assumption is that this solution is being re-created on a Windows 10 pro machine. At the time of writing this only a Windows machine was available for the dev work. The dev machine had 12GB RAM available.
@@ -52,7 +52,7 @@ It has not been explained to me and so, I am not entirely sure what this challan
 
 In this scenario, the entire solution would be much simpler and would require significantly less effort by removing Ansible from the solution architecture:
 - The [docker provisioner](https://www.vagrantup.com/docs/provisioning/docker.html) can automatically install Docker, pull Docker containers, and configure certain containers to run on boot
-- See the alternative [vagrant configuration](./Vagrantfile_docker) that you could run as follows:
+- See this alternative [vagrant configuration](./Vagrantfile_docker) that you could run as follows without having to use Ansible:
   - `clear && vagrant destroy --force && VAGRANT_VAGRANTFILE=Vagrantfile_docker vagrant up --color`
 
 Also, is vagrant really needed if docker can be run natively on a machine?
