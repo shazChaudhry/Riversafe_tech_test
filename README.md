@@ -43,15 +43,15 @@ The web URL serving out the “Hello World” should be accessible at [http://te
 Once finished, change to the directory in GitBash terminal to where this repo was cloned and run `vagrant destroy --force`
 
 ## Improvements to the solution architecture
-It has not been explained to me and so, I am not entirely sure what this challange is trying to test. However, in my oppinion the requirements should cerntainly be reviewed if the end goal simply is to:
-- install docker on a vagrant guest machine
-- build & run an alpine based docker container
+1. It has not been explained to me and so, I am not entirely sure what this challange is trying to test. However, in my oppinion the requirements should cerntainly be reviewed if the end goal simply is to:
+    - install docker on a vagrant guest machine
+    - build & run an alpine based docker container
 
-In this scenario, the entire solution could be much simpler and would require significantly less effort by removing Ansible from the solution architecture:
-- The [docker provisioner](https://www.vagrantup.com/docs/provisioning/docker.html) can automatically install Docker, pull Docker containers, and configure certain containers to run on boot
-- See this alternative [vagrant configuration](./Vagrantfile_docker) that you could run as follows without having to use Ansible:
-  - `clear && vagrant destroy --force && VAGRANT_VAGRANTFILE=Vagrantfile_docker vagrant up --color`
-  - This alternative vagrantfile demonstrates that the same result as above can be achieved with ease and significantly reduced complexity and effort
-- The web URL serving out the “Hello World” should still be accessible at [http://techtest](http://techtest)
+1. In this scenario, the entire solution could be much simpler and would require significantly less effort by removing Ansible from the solution architecture:
+    - The [docker provisioner](https://www.vagrantup.com/docs/provisioning/docker.html) can automatically install Docker, pull Docker containers, and configure certain containers to run on boot
+    - See this alternative [vagrant configuration](./Vagrantfile_docker) that you could run as follows without having to use Ansible:
+      - `clear && vagrant destroy --force && VAGRANT_VAGRANTFILE=Vagrantfile_docker vagrant up --color`
+      - This alternative vagrantfile demonstrates that the same result as above can be achieved with ease and significantly reduced complexity and effort
+    - The web URL serving out the “Hello World” should still be accessible at [http://techtest](http://techtest)
 
-Also, is vagrant really needed if docker can be run natively on a machine?
+1. Also, is vagrant really needed if docker can be run natively on a machine?
