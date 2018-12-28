@@ -1,0 +1,23 @@
+---
+
+- name: install pip docker
+  pip:
+    name: docker
+
+- name: Build Nginx image and with buildargs
+  docker_image:
+     path: ../docker
+     name: shazchaudhry/nginx
+     tag: latest
+     state: present
+     buildargs:
+       # TODO: The value is converted to a string. Will need to figure out how to extract git commit number
+       GIT_COMMIT: $(git log -1 --format=%H)
+
+- name: Create Nginx container
+  docker_container:
+    name: nginx
+    image: shazchaudhry/nginx:latest
+    published_ports: 80:80
+    auto_remove: yes
+    state: started

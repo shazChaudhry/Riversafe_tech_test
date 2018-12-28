@@ -24,7 +24,7 @@
 - name: Install Docker CE
   yum:
     name: docker-ce
-    state: present
+    state: latest
     update_cache: yes
 
 - name: Add the user 'vagrant' to docker group
@@ -32,11 +32,13 @@
     name: vagrant
     comment: Add the user 'vagrant' to docker group
     group: docker
-  notify:
-    - Enable Docker
+    state: present
+  # TODO: Need to figure out why notify does not work via vagrant ansible provisioner
+  # notify:
+  #   - Enable Docker
 
-# - name: Enable Docker CE service on startup
-#   service:
-#     name: docker
-#     state: started
-#     enabled: yes
+- name: Enable Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes

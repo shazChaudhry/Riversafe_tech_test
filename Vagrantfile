@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 			v.customize ["modifyvm", :id, "--memory", 3000]
 			v.customize ["modifyvm", :id, "--name", "techtest"]
 		end
-		techtest.vm.provision "shell", inline: "yum install -y epel-release && yum install -y git jq"
+		techtest.vm.provision "shell", inline: "yum install -y epel-release && yum install -y git jq python-pip"
 		# https://www.vagrantup.com/docs/provisioning/ansible_local.html
 		techtest.vm.provision "ansible_local" do |ansible|
 			ansible.provisioning_path		=	"/vagrant/ansible/"

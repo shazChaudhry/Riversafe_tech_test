@@ -48,7 +48,7 @@ Once finished, change to the directory in GitBash terminal to where this repo wa
 ### Improvements to the solution architecture
 It has not been explained to me and so, I am not entirely sure what this challange is trying to test. However, in my oppinion the requirements should cerntainly be reviewed if the end goal simply is to:
 - install docker on a vagrant guest machine
-- build & run an alphine based docker container
+- build & run an alpine based docker container
 
 In this scenario, the entire solution would be much simpler and would require significantly less effort by removing Ansible from the solution architecture:
 - The [docker provisioner](https://www.vagrantup.com/docs/provisioning/docker.html) can automatically install Docker, pull Docker containers, and configure certain containers to run on boot

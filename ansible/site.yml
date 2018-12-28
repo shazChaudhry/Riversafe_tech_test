@@ -4,6 +4,8 @@
   roles:
     - role: install-docker
       tags: ['docker']
+    - role: deploy-nginx
+      tags: ['nginx']
 
   # tasks:
   # - name: Set system path
