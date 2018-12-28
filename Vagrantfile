@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
 			ansible.playbook 						= "site.yml"
 			ansible.inventory_path 			= "hosts"
 			ansible.config_file					= "ansible.cfg"
+			ansible.compatibility_mode	= "2.0"
 			# ansible.verbose        			= true
 		end
 	end
