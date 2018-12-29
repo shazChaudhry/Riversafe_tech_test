@@ -1,3 +1,5 @@
 .vagrant
 *.log
 ansible/site.retry
+ansible/**/site.retry
+ansible/**/test.retry

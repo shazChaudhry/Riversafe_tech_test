@@ -10,4 +10,4 @@ Execute install-docker tests:
 - `ansible-playbook -i roles/install-docker/tests/hosts roles/install-docker/tests/test.yml`
 
 Execute deploy-nginx tests:
-- `ansible-playbook -i roles/install-docker/tests/hosts roles/deploy-nginx/tests/test.yml`
+- `ansible-playbook -i roles/deploy-nginx/tests/hosts roles/deploy-nginx/tests/test.yml`
