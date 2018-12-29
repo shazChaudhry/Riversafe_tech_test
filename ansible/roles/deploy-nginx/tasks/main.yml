@@ -1,5 +1,6 @@
 ---
 
+# docker python module is one of the requirements : https://docs.ansible.com/ansible/latest/modules/docker_image_module.html
 - name: install pip docker
   pip:
     name: docker
