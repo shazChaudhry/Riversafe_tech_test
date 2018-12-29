@@ -6,8 +6,11 @@ This is how you execute playbooks manually from within the guest machine
 Execute all roles defined in the main playbook:
 - `ansible-playbook site.yml`
 
-Execute install-docker tests:
-- `ansible-playbook -i roles/install-docker/tests/hosts roles/install-docker/tests/test.yml`
+Controlling which one playbook to run at a time:
+- ansible-playbook site.yml --tags "TAG"
+  - where TAG is either `docker` or `nginx`
 
-Execute deploy-nginx tests:
+
+Executing roles from within their test directories:
+- `ansible-playbook -i roles/install-docker/tests/hosts roles/install-docker/tests/test.yml`
 - `ansible-playbook -i roles/deploy-nginx/tests/hosts roles/deploy-nginx/tests/test.yml`
