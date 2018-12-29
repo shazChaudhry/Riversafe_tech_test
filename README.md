@@ -40,7 +40,7 @@ The assumption is that this solution is being re-created on a Windows 10 pro mac
 The web URL serving out the “Hello World” should be accessible at [http://techtest](http://techtest)
 
 ### Clean up
-Once finished, change to the directory in GitBash terminal to where this repo was cloned and run `vagrant destroy --force`
+Once finished, change the directory in Git Bash terminal to where this repo was cloned and run `vagrant destroy --force`
 
 ## Improvements to the solution architecture
 1. It has not been explained to me and so, I am not entirely sure what this challange is trying to test. However, in my oppinion the requirements should cerntainly be reviewed if the end goal simply is to:

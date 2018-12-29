@@ -1,18 +1,29 @@
 ---
 
+# docker python module is one of the requirements : https://docs.ansible.com/ansible/latest/modules/docker_image_module.html
 - name: install pip docker
   pip:
     name: docker
 
+# This is to retrieve the latest git SHA which is then passed on to the docker image below as an build argument
+- name: Retrive HEAD git SHA
+  git:
+    clone: no # do not clone the repository if it does not exist locally
+    repo: https://github.com/shazChaudhry/tech_test.git
+    update: no # If no, do not retrieve new revisions from the origin repository
+  register: gitresult
+
+- debug: msg="SHA-1 before git update is {{ gitresult.before }}"
+- debug: msg="SHA-1 after git update is {{ gitresult.after }}"
+
 - name: Build Nginx image and with buildargs
   docker_image:
-     path: ../docker
+     path: /vagrant/docker
      name: shazchaudhry/nginx
      tag: latest
      state: present
      buildargs:
-       # TODO: The value is converted to a string. Will need to figure out how to extract git commit number
-       GIT_COMMIT: $(git log -1 --format=%H)
+       GIT_COMMIT: "{{ gitresult.after }}"
 
 - name: Create Nginx container
   docker_container:
