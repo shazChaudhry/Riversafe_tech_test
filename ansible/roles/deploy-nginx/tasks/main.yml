@@ -11,6 +11,8 @@
     clone: no # do not clone the repository if it does not exist locally
     repo: https://github.com/shazChaudhry/tech_test.git
     update: no # If no, do not retrieve new revisions from the origin repository
+  tags:
+    - get_gitresult
   register: gitresult
 
 - debug: msg="SHA-1 before git update is {{ gitresult.before }}"
