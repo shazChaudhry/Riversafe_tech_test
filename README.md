@@ -25,9 +25,9 @@ The assumption is that this solution is being re-created on a Windows 10 pro mac
 - The user has admin privileges on the machine
 - At least 3GB of free RAM is available on the machine. Otherwise, Vagrantfile will need editing to adjust available memory:
   - `v.customize ["modifyvm", :id, "--memory", <MEMORY_ALLOCATION>]`
-- Latest version of [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-- Latest version of [Git Bash](https://git-scm.com/downloads)
-- Latest version of [Vagrant](https://www.vagrantup.com/intro/getting-started/install.html)
+- Latest version of Oracle VM VirtualBox
+- Latest version of Git for Windows
+- Latest version of Vagrant
   - Install Vagrant Host Manager plugin by running `vagrant plugin install vagrant-hostmanager` in Git Bash terminal. This will update host files on both guest and host machines
   - Install vagrant-vbguest plugin: `vagrant plugin install vagrant-vbguest`. See the comments in [Vagrantfile](./Vagrantfile) regarding shared folders.
 
@@ -55,3 +55,15 @@ Once finished, change the directory in Git Bash terminal to where this repo was 
     - The web URL serving out the “Hello World” should still be accessible at [http://techtest](http://techtest)
 
 1. Also, is vagrant really needed if docker can be run natively on a machine?
+
+## References
+1. Get started with [Ansible](https://www.ansible.com/resources/get-started) which is an app deployment, configuration management, and orchestration tool
+2. Get Started with [Docker](https://www.docker.com/get-started) which is a container solution
+1. [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads) is a free and open-source hosted hypervisor for x86 computers
+1. [Git for Windows](https://git-scm.com/downloads) provides a BASH emulation used to run Git from the command line. *NIX users should feel right at home, as the BASH emulation behaves just like the "git" command in LINUX and UNIX environments
+1. [Vagrant](https://www.vagrantup.com/intro/getting-started/install.html) is an open-source software product for building and maintaining portable virtual software development environments, e.g. for VirtualBox, Hyper-V, Docker containers, etc.
+1. [Molecule](https://molecule.readthedocs.io/en/latest/) is designed to aid in the development and testing of Ansible roles. Molecule provides support for testing with multiple instances, operating systems and distributions, virtualization providers, test frameworks and testing scenarios. Molecule is opinionated in order to encourage an approach that results in consistently developed roles that are well-written, easily understood and maintained. Molecule uses Ansible playbooks to exercise the role and its associated tests. Molecule supports any provider that Ansible supports.
+1. [Testing ansible roles with molecule, goss and docker](http://linora-solutions.nl/post/testing_ansible_roles_with_molecule_goss_and_docker/)
+1. [Goss](https://github.com/aelsabbahy/goss) is a YAML based serverspec alternative tool for validating a server’s configuration. It eases the process of writing tests by allowing the user to generate tests from the current system state. Once the test suite is written they can be executed, waited-on, or served as a health endpoint. 
+1. [Testing Ansible roles with Molecule](https://opensource.com/article/18/12/testing-ansible-roles-molecule). Learn how to automate your verifications using Python
+1. With [Testinfra](https://testinfra.readthedocs.io/en/latest/) you can write unit tests in Python to test actual state of your servers configured by management tools like Salt, Ansible, Puppet, Chef and so on. Testinfra aims to be a Serverspec equivalent in python and is written as a plugin to the powerful Pytest test engine
