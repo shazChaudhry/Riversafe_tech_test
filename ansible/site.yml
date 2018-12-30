@@ -1,8 +1,21 @@
 ---
 - hosts: local
   become: yes
-  roles:
-    - role: install-docker
-      tags: ['docker']
-    - role: deploy-nginx
-      tags: ['nginx']
+  tasks:
+    - import_role:
+        name: install-docker
+      when: "ansible_facts['os_family'] == 'RedHat'"
+      notify:
+        - Enable Docker
+      tags:
+        - docker
+
+# See "roles/install-docker/tasks/main.yml" for FEATURE REQUEST comment
+- hosts: local
+  become: yes
+  tasks:
+    - import_role:
+        name: deploy-nginx
+      when: "ansible_facts['os_family'] == 'RedHat'"
+      tags:
+        - nginx

@@ -26,6 +26,8 @@
     name: docker-ce
     state: latest
     update_cache: yes
+  tags:
+    - install_docker
 
 - name: Add the user 'vagrant' to docker group
   user:
@@ -33,12 +35,8 @@
     comment: Add the user 'vagrant' to docker group
     group: docker
     state: present
-  # TODO: Need to figure out why notify does not work via vagrant ansible provisioner
-  # notify:
-  #   - Enable Docker
-
-- name: Enable Docker
-  service:
-    name: docker
-    state: started
-    enabled: yes
+  # FEATURE REQUEST: https://github.com/ansible/ansible/issues/15476. This issue has been open since 19 Apr 2016
+  # handlers are not fired inbetween multiple roles as they are play scoped
+  # In order to get round the issue described above, I have created multiple plays in the main playbook
+  notify:
+    - Enable Docker
