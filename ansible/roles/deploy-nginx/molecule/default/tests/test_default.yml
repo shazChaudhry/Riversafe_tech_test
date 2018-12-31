@@ -1,0 +1,21 @@
+# Molecule managed
+
+---
+file:
+  /etc/hosts:
+    exists: true
+    owner: root
+    group: root
+
+http:
+  http://techtest/:
+    status: 200
+    body: [<H1>Hello World</H1>]
+
+# TODO: Work out why this is not working
+# https://github.com/aelsabbahy/goss/blob/master/docs/manual.md#port
+# port:
+#   tcp:80:
+#     listening: true
+#     ip:
+#     - 0.0.0.0
