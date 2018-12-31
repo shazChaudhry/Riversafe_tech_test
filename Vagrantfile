@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
 		techtest.vm.provision "shell", name: "techtest_prerequisites", inline: "yum install -y epel-release && yum install -y git jq python-pip"
 		techtest.vm.provision "shell", name: "molecule_prerequisites", inline: "yum install -y gcc python-devel openssl-devel libselinux-python"
 		techtest.vm.provision "shell", name: "install_molecule", inline: "runuser -l  vagrant -c 'pip install --user molecule'"
+		techtest.vm.provision "shell", name: "additional_tools", inline: "yum install -y net-tools"
 		# https://www.vagrantup.com/docs/provisioning/ansible_local.html
 		techtest.vm.provision "ansible_local" do |ansible|
 			ansible.provisioning_path		=	"/vagrant/ansible/"

@@ -15,6 +15,7 @@ platforms:
       - "/vagrant/docker:/vagrant/docker"
     capabilities:
       - SYS_ADMIN
+    network_mode: host
 provisioner:
   name: ansible
   lint:

@@ -12,6 +12,7 @@
       - python-devel
       - openssl-devel
       - libselinux-python
+      - net-tools
     docker_packages:
       - yum-utils
       - device-mapper-persistent-data
