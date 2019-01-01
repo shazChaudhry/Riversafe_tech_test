@@ -1,21 +1,3 @@
-## Execute playbooks manually
-This is how you execute playbooks manually from within the guest machine
-1. `vagrant ssh`
-1. `cd /vagrant/ansible`
-1. `export ANSIBLE_CONFIG=./ansible.cfg`. Without this system variable, you may get an error / warning saying _Ansible is being run in a world writable directory_
-
-Execute all roles defined in the main playbook:
-- `ansible-playbook site.yml`
-
-Controlling which one playbook to run at a time:
-- ansible-playbook site.yml --tags "TAG"
-  - where TAG is either `docker` or `nginx`
-
-
-Executing roles from within their test directories:
-- `ansible-playbook -i roles/install-docker/tests/hosts roles/install-docker/tests/test.yml`
-- `ansible-playbook -i roles/deploy-nginx/tests/hosts roles/deploy-nginx/tests/test.yml`
-
 ## Create a role or a scenario with Molecule
 Molecule helps develop roles using tests. The tool can even initialize a new roles e.g.
 - `cd /vagrant/ansible/roles`
@@ -59,16 +41,9 @@ Or for existing roles e.g.
                                             Name of verifier to initialize. (testinfra)
             --help                          Show this message and exit.
 ```
-You will then need to update relevant files under molecule directory and then run the role inside a docker container as follows _(deploy-nginx role is assumed here)_:
-```
-          docker run --rm -it \
-          -v $PWD:/tmp/$(basename "${PWD}"):ro \
-          -v /var/run/docker.sock:/var/run/docker.sock \
-          -w /tmp/$(basename "${PWD}") \
-          quay.io/ansible/molecule:latest \
-          sudo molecule test
-```
+
 ## Running individual Molecule commands
+You will need to update relevant files under molecule directory and then run the role inside a docker container as follows _(deploy-nginx role is assumed here)_. You will also need to ensure that all existing container have stoped and removed: `docker container stop $(docker container ps -aq)`
 - lint - Executes yaml-lint, ansible-lint, and flake8, reporting failure if there are issues
 - syntax - Verifies the role for syntax errors
 - create - Creates an instance with the configured driver
@@ -79,3 +54,32 @@ You will then need to update relevant files under molecule directory and then ru
 - destroy - Destroys instances
 - test - Executes all the previous steps
 > The `login` command can be used to connect to provisioned servers for troubleshooting purposes
+
+## Running all tests
+You will need to update relevant files under molecule directory and then run the role inside a docker container as follows _(deploy-nginx role is assumed here)_. You will also need to ensure that all existing container have stoped and removed: `docker container stop $(docker container ps -aq)`
+```
+          docker run --rm -it \
+          -v $PWD:/tmp/$(basename "${PWD}"):ro \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          -w /tmp/$(basename "${PWD}") \
+          quay.io/ansible/molecule:latest \
+          sudo molecule test
+```
+
+## Execute playbooks manually
+This is how you execute playbooks manually from within the guest machine
+1. `vagrant ssh`
+1. `cd /vagrant/ansible`
+1. `export ANSIBLE_CONFIG=./ansible.cfg`. Without this system variable, you may get an error / warning saying _Ansible is being run in a world writable directory_
+
+Execute all roles defined in the main playbook:
+- `ansible-playbook site.yml`
+
+Controlling which one playbook to run at a time:
+- ansible-playbook site.yml --tags "TAG"
+  - where TAG is either `docker` or `nginx`
+
+
+Executing roles from within their test directories:
+- `ansible-playbook -i roles/install-docker/tests/hosts roles/install-docker/tests/test.yml`
+- `ansible-playbook -i roles/deploy-nginx/tests/hosts roles/deploy-nginx/tests/test.yml`
