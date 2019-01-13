@@ -25,11 +25,10 @@ The assumption is that this solution is being re-created on a Windows 10 pro mac
 - The user has admin privileges on the machine
 - At least 3GB of free RAM is available on the machine. Otherwise, Vagrantfile will need editing to adjust available memory:
   - `v.customize ["modifyvm", :id, "--memory", <MEMORY_ALLOCATION>]`
-- Latest version of Oracle VM VirtualBox
+- Latest version of Oracle VM VirtualBox _(v6.0 at the time of writing this)_
 - Latest version of Git for Windows
-- Latest version of Vagrant
+- Latest version of Vagrant _(v2.2.2 at the time of writing this)_
   - Install Vagrant Host Manager plugin by running `vagrant plugin install vagrant-hostmanager` in Git Bash terminal. This will update host files on both guest and host machines
-  - Install vagrant-vbguest plugin: `vagrant plugin install vagrant-vbguest`. See the comments in [Vagrantfile](./Vagrantfile) regarding shared folders.
 
 ### Instructions
 1. Clone this repo and change the directory: `git clone https://github.com/shazChaudhry/tech_test.git && cd tech_test`
